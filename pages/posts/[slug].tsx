@@ -16,7 +16,7 @@ const PostPage: NextPage<PageProps> = ({ meta, content }) => {
   return (
     <>
       <header className="flex items-center justify-between my-16">
-        <Link href="/">
+        <Link href="/#posts">
           <a
             title="Back to home page"
             className="flex items-center space-x-4 underline cursor-pointer"
