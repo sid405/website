@@ -18,7 +18,7 @@ export function Intro({ latestPostTitle, latestPostSlug }: Props) {
     >
       <article className="space-y-8">
         <p>👋</p>
-        <p>I'm Sid, I'm a Typescript Engineer in Berlin.</p>
+        <p>I&apos;m Sid, I&apos;m a Typescript Engineer in Berlin.</p>
         <p>
           I currently work at Prisma, and we’re trying to bring databases to
           2021. I work on a{" "}
