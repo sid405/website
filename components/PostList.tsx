@@ -1,9 +1,9 @@
-import React from "react"
-import { Post } from "../lib/api"
+import React from "react";
+import { Post } from "../lib/api";
 
 type Props = {
-  posts: Post[]
-}
+  posts: Post[];
+};
 
 export function PostList({ posts }: Props) {
   return (
@@ -15,12 +15,12 @@ export function PostList({ posts }: Props) {
         <Item key={p.slug} post={p} />
       ))}
     </section>
-  )
+  );
 }
 
 type ItemProps = {
-  post: Post
-}
+  post: Post;
+};
 
 function Item({ post }: ItemProps) {
   return (
@@ -34,5 +34,5 @@ function Item({ post }: ItemProps) {
       <h6 className="my-2 text-xl text-red-500">{post.meta.date}</h6>
       <p className="my-8">{post.meta.excerpt}</p>
     </article>
-  )
+  );
 }

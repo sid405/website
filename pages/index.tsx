@@ -1,14 +1,14 @@
-import type { GetStaticProps, NextPage } from "next"
-import Link from "next/link"
-import { Icon } from "../components/Icon"
-import { Intro } from "../components/Intro"
-import { PostList } from "../components/PostList"
-import { ThemeSwitch } from "../components/ThemeSwitch"
-import { getAllPosts, Post } from "../lib/api"
+import type { GetStaticProps, NextPage } from "next";
+import Link from "next/link";
+import { Icon } from "../components/Icon";
+import { Intro } from "../components/Intro";
+import { PostList } from "../components/PostList";
+import { ThemeSwitch } from "../components/ThemeSwitch";
+import { getAllPosts, Post } from "../lib/api";
 
 type PageProps = {
-  allPosts: Post[]
-}
+  allPosts: Post[];
+};
 
 const Home: NextPage<PageProps> = ({ allPosts }) => {
   return (
@@ -37,13 +37,13 @@ const Home: NextPage<PageProps> = ({ allPosts }) => {
         <PostList posts={allPosts} />
       </main>
     </>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
 
 export const getStaticProps: GetStaticProps<PageProps> = async () => {
   return {
     props: { allPosts: getAllPosts() },
-  }
-}
+  };
+};

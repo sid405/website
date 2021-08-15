@@ -5,8 +5,8 @@ module.exports = {
     config.module.rules.push({
       test: /\.glsl$/,
       use: ["webpack-glsl-loader"],
-    })
+    });
 
-    return config
+    return config;
   },
-}
+};

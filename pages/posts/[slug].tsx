@@ -1,16 +1,16 @@
-import { GetStaticPaths, GetStaticProps, NextPage } from "next"
-import Link from "next/link"
-import React from "react"
-import { Icon } from "../../components/Icon"
-import { ThemeSwitch } from "../../components/ThemeSwitch"
-import { getAllPosts, getPostBySlug, Post } from "../../lib/api"
-import markdownToHtml from "../../lib/md"
-import markdownStyles from "../../styles/markdown.module.css"
+import { GetStaticPaths, GetStaticProps, NextPage } from "next";
+import Link from "next/link";
+import React from "react";
+import { Icon } from "../../components/Icon";
+import { ThemeSwitch } from "../../components/ThemeSwitch";
+import { getAllPosts, getPostBySlug, Post } from "../../lib/api";
+import markdownToHtml from "../../lib/md";
+import markdownStyles from "../../styles/markdown.module.css";
 
 type PageProps = {
-  meta: Post["meta"]
-  content: string
-}
+  meta: Post["meta"];
+  content: string;
+};
 
 const PostPage: NextPage<PageProps> = ({ meta, content }) => {
   return (
@@ -39,23 +39,23 @@ const PostPage: NextPage<PageProps> = ({ meta, content }) => {
         </section>
       </main>
     </>
-  )
-}
+  );
+};
 
-export default PostPage
+export default PostPage;
 
 export const getStaticProps: GetStaticProps<PageProps> = async ({ params }) => {
-  const slug = params?.slug as string
-  const post = getPostBySlug(slug)
-  const content = await markdownToHtml(post.content || "")
+  const slug = params?.slug as string;
+  const post = getPostBySlug(slug);
+  const content = await markdownToHtml(post.content || "");
 
   return {
     props: {
       meta: post.meta,
       content,
     },
-  }
-}
+  };
+};
 
 export const getStaticPaths: GetStaticPaths = () => {
   return {
@@ -64,8 +64,8 @@ export const getStaticPaths: GetStaticPaths = () => {
         params: {
           slug: post.slug,
         },
-      }
+      };
     }),
     fallback: false,
-  }
-}
+  };
+};

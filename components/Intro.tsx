@@ -1,13 +1,13 @@
-import { default as NextLink } from "next/link"
-import React from "react"
-import { Icon } from "./Icon"
-import { Link } from "./Link"
-import { TopoBackground } from "./TopoBackground"
+import { default as NextLink } from "next/link";
+import React from "react";
+import { Icon } from "./Icon";
+import { Link } from "./Link";
+import { TopoBackground } from "./TopoBackground";
 
 type Props = {
-  latestPostSlug: string
-  latestPostTitle: string
-}
+  latestPostSlug: string;
+  latestPostTitle: string;
+};
 
 export function Intro({ latestPostTitle, latestPostSlug }: Props) {
   return (
@@ -85,7 +85,9 @@ export function Intro({ latestPostTitle, latestPostSlug }: Props) {
         </p>
       </article>
 
-      <div className="flex-grow flex-shrink-0 flex items-end m-4">
+      <div className="flex-grow flex-shrink-0"></div>
+
+      <div className="flex m-4">
         <NextLink href="#posts">
           <a title="Go to posts">
             <Icon name="arrow-down" />
@@ -93,5 +95,5 @@ export function Intro({ latestPostTitle, latestPostSlug }: Props) {
         </NextLink>
       </div>
     </section>
-  )
+  );
 }

@@ -1,7 +1,7 @@
 type Props = {
-  name: "sun" | "moon" | "arrow-left" | "arrow-down" | "github" | "mail"
-  size?: 16 | 14
-}
+  name: "sun" | "moon" | "arrow-left" | "arrow-down" | "github" | "mail";
+  size?: 16 | 14;
+};
 
 export function Icon({ name, size = 16 }: Props) {
   const common = {
@@ -9,7 +9,7 @@ export function Icon({ name, size = 16 }: Props) {
     width: size,
     height: size,
     fill: "none",
-  }
+  };
 
   switch (name) {
     case "sun":
@@ -70,7 +70,7 @@ export function Icon({ name, size = 16 }: Props) {
             fill="currentColor"
           />
         </svg>
-      )
+      );
 
     case "moon":
       return (
@@ -82,7 +82,7 @@ export function Icon({ name, size = 16 }: Props) {
             fill="currentColor"
           />
         </svg>
-      )
+      );
 
     case "arrow-left":
       return (
@@ -112,7 +112,7 @@ export function Icon({ name, size = 16 }: Props) {
             </clipPath>
           </defs>
         </svg>
-      )
+      );
 
     case "arrow-down":
       return (
@@ -142,7 +142,7 @@ export function Icon({ name, size = 16 }: Props) {
             </clipPath>
           </defs>
         </svg>
-      )
+      );
 
     case "github":
       return (
@@ -152,7 +152,7 @@ export function Icon({ name, size = 16 }: Props) {
             fill="currentColor"
           />
         </svg>
-      )
+      );
 
     case "mail":
       return (
@@ -170,8 +170,8 @@ export function Icon({ name, size = 16 }: Props) {
             fill="currentColor"
           />
         </svg>
-      )
+      );
     default:
-      return <></>
+      return <></>;
   }
 }

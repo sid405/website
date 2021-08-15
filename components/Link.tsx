@@ -1,10 +1,10 @@
-import { default as NextLink } from "next/link"
-import React from "react"
+import { default as NextLink } from "next/link";
+import React from "react";
 
 type Props = React.PropsWithChildren<{
-  href: string
-  title: string
-}>
+  href: string;
+  title: string;
+}>;
 
 export function Link({ href, children }: Props) {
   return (
@@ -17,5 +17,5 @@ export function Link({ href, children }: Props) {
         {children}
       </a>
     </NextLink>
-  )
+  );
 }

@@ -1,80 +1,83 @@
-import React, { useEffect, useState } from "react"
-import { Icon } from "./Icon"
+import React, { useEffect, useState } from "react";
+import { Icon } from "./Icon";
 
-type Theme = "light" | "dark"
+type Theme = "light" | "dark";
 
 export function ThemeSwitch() {
-  const [theme, setTheme] = useState<Theme>()
+  const [theme, setTheme] = useState<Theme>();
   const setLightTheme = () => {
-    setTheme("light")
-    window.document.documentElement.classList.remove("dark")
+    setTheme("light");
+    window.document.documentElement.classList.remove("dark");
 
     const isLightMode = window.matchMedia(
       "(prefers-color-scheme: light)"
-    ).matches
+    ).matches;
     if (isLightMode) {
       // If the current OS theme is light as well, remove the localStorage theme so that you start respecting the OS theme again
-      localStorage.removeItem("theme")
+      localStorage.removeItem("theme");
     } else {
       // Otherwise, override the OS theme
-      localStorage.setItem("theme", "light")
+      localStorage.setItem("theme", "light");
     }
-  }
+  };
   const setDarkTheme = () => {
-    setTheme("dark")
-    window.document.documentElement.classList.add("dark")
+    setTheme("dark");
+    window.document.documentElement.classList.add("dark");
 
-    const isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches
+    const isDarkMode = window.matchMedia(
+      "(prefers-color-scheme: dark)"
+    ).matches;
     if (isDarkMode) {
       // If the current OS theme is dark as well, remove the localStorage theme so that you start respecting the OS theme again
-      localStorage.removeItem("theme")
+      localStorage.removeItem("theme");
     } else {
       // Otherwise, override the OS theme
-      localStorage.setItem("theme", "dark")
+      localStorage.setItem("theme", "dark");
     }
-  }
-  const flipTheme = () => (theme === "light" ? setDarkTheme() : setLightTheme())
+  };
+  const flipTheme = () =>
+    theme === "light" ? setDarkTheme() : setLightTheme();
 
   useEffect(() => {
-    const fixedTheme = localStorage.getItem("theme") as Theme
+    const fixedTheme = localStorage.getItem("theme") as Theme;
     const onOSThemeChange = (e: MediaQueryListEvent) => {
       if (fixedTheme) {
-        return
+        return;
       }
 
       if (e.matches) {
-        setDarkTheme()
+        setDarkTheme();
       } else {
-        setLightTheme()
+        setLightTheme();
       }
-    }
+    };
 
     // Set up a listener that will change the theme as the user's OS theme changes
     window
       .matchMedia("(prefers-color-scheme: dark)")
-      .addEventListener("change", onOSThemeChange)
+      .addEventListener("change", onOSThemeChange);
 
     // If there's a theme saved in localStorage, do nothing and switch to that theme
     if (fixedTheme) {
-      setTheme(fixedTheme)
+      setTheme(fixedTheme);
     } else {
       // Set the initial value of the theme
       const isDarkMode = window.matchMedia(
         "(prefers-color-scheme: dark)"
-      ).matches
+      ).matches;
       if (isDarkMode) {
-        setDarkTheme()
+        setDarkTheme();
       } else {
-        setLightTheme()
+        setLightTheme();
       }
     }
 
     return () => {
       window
         .matchMedia("(prefers-color-scheme: dark)")
-        .removeEventListener("change", onOSThemeChange)
-    }
-  }, [])
+        .removeEventListener("change", onOSThemeChange);
+    };
+  }, []);
 
   return (
     <button
@@ -84,5 +87,5 @@ export function ThemeSwitch() {
       {theme === "light" && <Icon name="moon" />}
       {theme === "dark" && <Icon name="sun" />}
     </button>
-  )
+  );
 }

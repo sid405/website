@@ -1,24 +1,27 @@
-import { useEffect } from "react"
-import { TopoBackground as Canvas } from "../lib/canvas/canvas"
+import { useEffect } from "react";
+import { TopoBackground as Canvas } from "../lib/canvas/canvas";
 
 export function TopoBackground() {
   useEffect(() => {
     if (!Canvas.isWebGLAvailable()) {
-      return
+      return;
     }
 
-    const bg = new Canvas(document.getElementById("topographic")!)
-    bg.start()
+    const bg = new Canvas(document.getElementById("topographic")!);
+    bg.start();
     return () => {
-      bg.dispose()
-    }
-  }, [])
+      bg.dispose();
+    };
+  }, []);
 
   return (
     <div
       id="topographic"
       className="absolute top-0 left-0 w-screen h-screen"
-      style={{ zIndex: -1 }}
+      style={{
+        zIndex: -1,
+        opacity: 0.075,
+      }}
     ></div>
-  )
+  );
 }
