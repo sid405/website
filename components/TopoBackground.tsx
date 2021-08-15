@@ -46,7 +46,12 @@ export function TopoBackground() {
           opacity: 0.075,
         }}
       ></div>
-      <div className="absolute bottom-0 h-48 w-screen bg-gradient-to-b from-transparent to-white dark:to-gray-800"></div>
+      <div
+        className={
+          "absolute bottom-0 h-48 w-screen" +
+          "bg-gradient-to-b from-[rgba(255,255,255,0)] to-white dark:from-[rgba(0,0,0,0)] dark:to-gray-800"
+        }
+      ></div>
     </div>
   );
 }
