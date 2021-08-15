@@ -1,5 +1,5 @@
+import { useTheme } from "@madebysid/usetheme";
 import React from "react";
-import { useTheme } from "../lib/theme";
 import { Icon } from "./Icon";
 
 export function ThemeSwitch() {

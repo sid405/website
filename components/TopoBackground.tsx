@@ -1,7 +1,7 @@
+import { useTheme } from "@madebysid/usetheme";
 import debounce from "lodash/debounce";
 import { useEffect, useState } from "react";
 import { Canvas } from "../lib/canvas/canvas";
-import { useTheme } from "../lib/theme";
 
 export function TopoBackground() {
   const [canvas, setCanvas] = useState<Canvas>();
@@ -32,7 +32,12 @@ export function TopoBackground() {
   }, [canvas]);
 
   return (
-    <div className="absolute top-0 left-0">
+    <div
+      className="absolute top-0 left-0"
+      style={{
+        zIndex: -1,
+      }}
+    >
       <div
         id="topographic"
         className="w-screen h-screen"

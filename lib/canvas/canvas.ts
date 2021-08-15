@@ -1,3 +1,4 @@
+import { Theme } from "@madebysid/usetheme";
 import {
   Clock,
   Color,
@@ -9,7 +10,6 @@ import {
   ShaderMaterial,
   WebGLRenderer,
 } from "three";
-import { Theme } from "../theme";
 import FS from "./shaders/fragment.glsl";
 import VS from "./shaders/vertex.glsl";
 
