@@ -47,10 +47,14 @@ export function TopoBackground() {
         }}
       ></div>
       <div
-        className={
-          "absolute bottom-0 h-48 w-screen" +
-          "bg-gradient-to-b from-[rgba(255,255,255,0)] to-white dark:from-[rgba(0,0,0,0)] dark:to-gray-800"
-        }
+        className="absolute bottom-0 h-48 w-screen"
+        style={{
+          background: `linear-gradient(0deg, ${
+            theme === "light"
+              ? "rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%" // white, Need white-transparent for Safari
+              : "rgba(39, 39, 42, 1) 0%, rgba(39, 39, 42, 0) 100%" // gray-800, Need black-transparent for Safari
+          })`,
+        }}
       ></div>
     </div>
   );
