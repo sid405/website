@@ -118,6 +118,6 @@ void main() {
   float lower = floor(noise * levels) / levels; // find the lower band/level the noise matches at
 	float lowerDiff = noise - lower; // and find the difference
 
-	// if the difference between the lower level is within some range, color it FG, otherwise BG
+	// if the difference between the lower level is within some range, consider it FG, otherwise BG
 	gl_FragColor = vec4(lowerDiff < 0.01 ? fgColor : bgColor, 1.0);
 }
