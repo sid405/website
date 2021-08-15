@@ -10,7 +10,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       <Head>
         <title>Diet Code</title>
       </Head>
-      <Component {...pageProps} />;
+      <Component {...pageProps} />
     </ThemeProvider>
   );
 }

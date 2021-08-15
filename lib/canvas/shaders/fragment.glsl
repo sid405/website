@@ -119,5 +119,4 @@ void main() {
 
 	// if the difference between the lower level is within some range, paint the fragment, otherwise ignore it
 	gl_FragColor = lowerDiff < 0.01 ? vec4(color, 1.0) : vec4(0.0);
-	// gl_FragColor = vec4(color, lowerDiff < 0.01 ? 1.0 : 0.0);
 }
