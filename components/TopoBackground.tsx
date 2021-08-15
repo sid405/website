@@ -32,13 +32,16 @@ export function TopoBackground() {
   }, [canvas]);
 
   return (
-    <div
-      id="topographic"
-      className="absolute top-0 left-0 w-screen h-screen"
-      style={{
-        zIndex: -1,
-        opacity: 0.075,
-      }}
-    ></div>
+    <div className="absolute top-0 left-0">
+      <div
+        id="topographic"
+        className="w-screen h-screen"
+        style={{
+          zIndex: -1,
+          opacity: 0.075,
+        }}
+      ></div>
+      <div className="absolute bottom-0 h-48 w-screen bg-gradient-to-b from-transparent to-white dark:to-gray-800"></div>
+    </div>
   );
 }

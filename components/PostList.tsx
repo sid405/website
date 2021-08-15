@@ -7,7 +7,7 @@ type Props = {
 
 export function PostList({ posts }: Props) {
   return (
-    <section className="mt-16">
+    <section className="mt-32">
       <h2 id="posts" className="text-2xl uppercase opacity-50">
         Posts
       </h2>
