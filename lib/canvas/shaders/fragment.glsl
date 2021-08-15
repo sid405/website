@@ -118,5 +118,10 @@ void main() {
 	float lowerDiff = noise - lower; // and find the difference
 
 	// if the difference between the lower level is within some range, paint the fragment, otherwise ignore it
-	gl_FragColor = lowerDiff < 0.01 ? vec4(color, 1.0) : vec4(0.0);
+  if (lowerDiff > 0.015)
+    discard;
+
+  gl_FragColor = vec4(color, 1.0);
+
+  // TODO:: Normie anti-alias?
 }

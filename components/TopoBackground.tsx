@@ -43,7 +43,7 @@ export function TopoBackground() {
         className="w-screen h-screen"
         style={{
           zIndex: -1,
-          opacity: 0.075,
+          opacity: 0.05,
         }}
       ></div>
       <div
