@@ -20,7 +20,6 @@ export class Canvas {
   private domElement: Element;
   private width: number;
   private height: number;
-  private resizeHandler: () => void;
 
   private scene: Scene;
   private camera: OrthographicCamera;
@@ -44,7 +43,6 @@ export class Canvas {
     const { width, height } = domElement.getBoundingClientRect();
     this.width = width;
     this.height = height;
-    this.resizeHandler = this.resize.bind(this, this.width, this.height);
 
     this.scene = new Scene();
     this.camera = new OrthographicCamera(
@@ -58,7 +56,7 @@ export class Canvas {
     this.camera.position.z = 5;
     this.renderer = new WebGLRenderer({ alpha: true });
     this.renderer.setClearColor(0x000000, 0);
-    this.resize(this.width, this.height);
+    this.setSize(this.width, this.height);
 
     this.clock = new Clock();
     this.geometry = new PlaneBufferGeometry(this.width, this.height);
@@ -79,7 +77,6 @@ export class Canvas {
     this.scene.add(new Mesh(this.geometry, this.material));
 
     domElement.appendChild(this.renderer.domElement);
-    window.addEventListener("resize", this.resizeHandler);
 
     this.eventLoop();
   }
@@ -90,8 +87,9 @@ export class Canvas {
     this.renderer.render(this.scene, this.camera);
   };
 
-  private resize(width: number, height: number) {
+  public setSize(width: number, height: number) {
     this.renderer.setSize(width, height);
+    this.camera.updateProjectionMatrix();
   }
 
   public setTheme(theme: Theme) {
@@ -103,7 +101,6 @@ export class Canvas {
   }
 
   public dispose = () => {
-    window.removeEventListener("resize", this.resizeHandler);
     while (this.domElement.lastChild) {
       this.domElement.lastChild.remove();
     }

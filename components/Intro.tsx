@@ -14,7 +14,7 @@ export function Intro({ latestPostTitle, latestPostSlug }: Props) {
     <section
       className="flex flex-col items-center"
       style={{
-        height: "calc(100vh - 13rem)",
+        minHeight: "calc(100vh - 13rem)",
       }}
     >
       <TopoBackground />
