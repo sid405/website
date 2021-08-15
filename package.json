@@ -9,9 +9,14 @@
     "format": "prettier --ignore-path=.gitignore -w .",
     "format:check": "prettier --ignore-path=.gitignore -c ."
   },
-  "dependencies": {
+  "dependencies": {},
+  "devDependencies": {
     "@fontsource/jetbrains-mono": "4.5.0",
+    "@types/react": "17.0.17",
+    "@types/three": "0.131.0",
     "autoprefixer": "10.3.1",
+    "eslint": "7.32.0",
+    "eslint-config-next": "11.1.0",
     "gray-matter": "4.0.3",
     "next": "11.1.0",
     "postcss": "8.3.6",
@@ -19,13 +24,10 @@
     "react-dom": "17.0.2",
     "remark": "14.0.1",
     "remark-html": "14.0.0",
-    "tailwindcss": "2.2.7"
-  },
-  "devDependencies": {
-    "@types/react": "17.0.17",
-    "eslint": "7.32.0",
-    "eslint-config-next": "11.1.0",
-    "typescript": "4.3.5"
+    "tailwindcss": "2.2.7",
+    "three": "0.131.3",
+    "typescript": "4.3.5",
+    "webpack-glsl-loader": "1.0.1"
   },
   "prettier": {
     "tabWidth": 2,

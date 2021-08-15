@@ -14,9 +14,10 @@ class MyDocument extends Document {
 
   render() {
     return (
-      <Html>
+      <Html className="overflow-x-hidden">
         <Head>
           <link rel="shortcut icon" type="image/svg" href="favicon.svg" />
+          <title>Diet Code</title>
         </Head>
         <body className="max-w-2xl mx-auto px-4 2xl:px-0 bg-white dark:bg-gray-800 text-gray-800 dark:text-white">
           <Main />

@@ -2,6 +2,7 @@ import { default as NextLink } from "next/link"
 import React from "react"
 import { Icon } from "./Icon"
 import { Link } from "./Link"
+import { TopoBackground } from "./TopoBackground"
 
 type Props = {
   latestPostSlug: string
@@ -16,6 +17,7 @@ export function Intro({ latestPostTitle, latestPostSlug }: Props) {
         height: "calc(100vh - 13rem)",
       }}
     >
+      <TopoBackground />
       <article className="space-y-8">
         <p className="text-5xl">👋</p>
         <p>I&apos;m Sid, I&apos;m a Typescript Engineer in Berlin.</p>
