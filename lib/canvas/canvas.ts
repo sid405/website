@@ -9,13 +9,15 @@ import {
   ShaderMaterial,
   WebGLRenderer,
 } from "three";
+import { Theme } from "../theme";
 import FS from "./shaders/fragment.glsl";
 import VS from "./shaders/vertex.glsl";
 
-const BG_COLOR = "#27272A"; // gray-800
-const FG_COLOR = "#FFFFFF"; // white
+const DARK_COLOR = "#FFFFFF"; // white
+const LIGHT_COLOR = "#27272A"; // gray-800
 
-export class TopoBackground {
+export class Canvas {
+  private domElement: Element;
   private width: number;
   private height: number;
   private resizeHandler: () => void;
@@ -38,11 +40,11 @@ export class TopoBackground {
   }
 
   constructor(domElement: Element) {
+    this.domElement = domElement;
     const { width, height } = domElement.getBoundingClientRect();
     this.width = width;
     this.height = height;
     this.resizeHandler = this.resize.bind(this, this.width, this.height);
-    window.addEventListener("resize", this.resizeHandler);
 
     this.scene = new Scene();
     this.camera = new OrthographicCamera(
@@ -63,11 +65,8 @@ export class TopoBackground {
     this.geometry.translate(this.width / 2, this.height / 2, 0);
     this.material = new ShaderMaterial({
       uniforms: {
-        bgColor: {
-          value: new Color(BG_COLOR),
-        },
-        fgColor: {
-          value: new Color(FG_COLOR),
+        color: {
+          value: new Color(LIGHT_COLOR),
         },
         time: {
           value: 0,
@@ -80,6 +79,9 @@ export class TopoBackground {
     this.scene.add(new Mesh(this.geometry, this.material));
 
     domElement.appendChild(this.renderer.domElement);
+    window.addEventListener("resize", this.resizeHandler);
+
+    this.eventLoop();
   }
 
   private eventLoop = () => {
@@ -92,12 +94,20 @@ export class TopoBackground {
     this.renderer.setSize(width, height);
   }
 
-  public start = () => {
-    this.eventLoop();
-  };
+  public setTheme(theme: Theme) {
+    if (theme === "light") {
+      this.material.uniforms.color.value = new Color(LIGHT_COLOR);
+    } else {
+      this.material.uniforms.color.value = new Color(DARK_COLOR);
+    }
+  }
 
   public dispose = () => {
     window.removeEventListener("resize", this.resizeHandler);
+    while (this.domElement.lastChild) {
+      this.domElement.lastChild.remove();
+    }
+
     this.geometry.dispose();
     this.material.dispose();
     this.renderer.dispose();

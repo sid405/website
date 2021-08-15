@@ -1,18 +1,24 @@
-import { useEffect } from "react";
-import { TopoBackground as Canvas } from "../lib/canvas/canvas";
+import { useEffect, useState } from "react";
+import { Canvas } from "../lib/canvas/canvas";
+import { useTheme } from "../lib/theme";
 
 export function TopoBackground() {
+  const [canvas, setCanvas] = useState<Canvas>();
+  const { theme } = useTheme();
+
   useEffect(() => {
     if (!Canvas.isWebGLAvailable()) {
       return;
     }
 
-    const bg = new Canvas(document.getElementById("topographic")!);
-    bg.start();
-    return () => {
-      bg.dispose();
-    };
+    setCanvas(new Canvas(document.getElementById("topographic")!));
+
+    return () => canvas?.dispose();
   }, []);
+
+  useEffect(() => {
+    theme && canvas?.setTheme(theme);
+  }, [theme]);
 
   return (
     <div

@@ -102,8 +102,7 @@ float snoise(vec3 v)
                                 dot(p2,x2), dot(p3,x3) ) );
   }
 
-uniform vec3 bgColor;
-uniform vec3 fgColor;
+uniform vec3 color;
 uniform float time;
 
 void main() {
@@ -118,6 +117,7 @@ void main() {
   float lower = floor(noise * levels) / levels; // find the lower band/level the noise matches at
 	float lowerDiff = noise - lower; // and find the difference
 
-	// if the difference between the lower level is within some range, consider it FG, otherwise BG
-	gl_FragColor = vec4(lowerDiff < 0.01 ? fgColor : bgColor, 1.0);
+	// if the difference between the lower level is within some range, paint the fragment, otherwise ignore it
+	gl_FragColor = lowerDiff < 0.01 ? vec4(color, 1.0) : vec4(0.0);
+	// gl_FragColor = vec4(color, lowerDiff < 0.01 ? 1.0 : 0.0);
 }

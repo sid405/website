@@ -1,5 +1,5 @@
 import React from "react";
-import { useTheme } from "../hooks/useTheme";
+import { useTheme } from "../lib/theme";
 import { Icon } from "./Icon";
 
 export function ThemeSwitch() {

@@ -1,11 +1,29 @@
-import { useEffect, useState } from "react";
+import {
+  createContext,
+  Dispatch,
+  PropsWithChildren,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
 
 export type Theme = "light" | "dark";
+
+/**
+ * Stores the currently active theme, and a way to change it.
+ *
+ * Themes must be in a Context (as opposed to a hook) because they work with localStorage.
+ * Putting them inside a context ensures there aren't multiple readers / writers to / from localStorage.
+ */
+const ThemeContext = createContext<{
+  theme?: Theme | null;
+  setTheme: Dispatch<Theme>;
+}>({ theme: null, setTheme: () => {} });
 
 const isLightOS = () =>
   window.matchMedia("(prefers-color-scheme: light)").matches;
 
-export function useTheme() {
+export function ThemeProvider({ children }: PropsWithChildren<{}>) {
   const [localStorageTheme, setLocalStorageTheme] = useState<Theme | null>();
   const [OSTheme, setOSTheme] = useState<Theme | null>();
   const appTheme = localStorageTheme || OSTheme;
@@ -16,7 +34,7 @@ export function useTheme() {
    * 3. `appTheme` is derived from `OSTheme` & `localStorageTheme`:
    */
 
-  // Set up side-effects for OSTheme
+  // Set up side-effects for OSTheme & localStorageTheme
   useEffect(() => {
     if (!OSTheme) {
       // This will only happen on first render
@@ -35,7 +53,7 @@ export function useTheme() {
     }
   }, [OSTheme, localStorageTheme]);
 
-  // Set up side-effects for localStorageTheme
+  // Set up persistence
   useEffect(() => {
     if (localStorageTheme) {
       localStorage.setItem("theme", localStorageTheme);
@@ -44,16 +62,8 @@ export function useTheme() {
     }
   }, [localStorageTheme]);
 
-  // Set up side-effects for appTheme
+  // Set up a listener that will change the theme as the user's OS theme changes
   useEffect(() => {
-    appTheme === "light"
-      ? document.documentElement.classList.remove("dark")
-      : document.documentElement.classList.add("dark");
-  }, [appTheme]);
-
-  // Set up OSTheme listener
-  useEffect(() => {
-    // Set up a listener that will change the theme as the user's OS theme changes
     const watchMedia = window.matchMedia("(prefers-color-scheme: dark)");
     const onOSThemeChange = () =>
       setOSTheme((t) => (t === "light" ? "dark" : "light"));
@@ -64,5 +74,25 @@ export function useTheme() {
     };
   }, []);
 
-  return { theme: appTheme, setTheme: setLocalStorageTheme };
+  // Set up side-effects for appTheme
+  useEffect(() => {
+    appTheme === "light"
+      ? document.documentElement.classList.remove("dark")
+      : document.documentElement.classList.add("dark");
+  }, [appTheme]);
+
+  return (
+    <ThemeContext.Provider
+      value={{
+        theme: appTheme,
+        setTheme: setLocalStorageTheme,
+      }}
+    >
+      {children}
+    </ThemeContext.Provider>
+  );
+}
+
+export function useTheme() {
+  return useContext(ThemeContext);
 }
