@@ -83,7 +83,8 @@ export class Canvas {
 
   private eventLoop = () => {
     requestAnimationFrame(this.eventLoop);
-    this.material.uniforms.time.value = this.clock.getElapsedTime();
+    this.material.uniforms.time.value =
+      this.clock.startTime + this.clock.getElapsedTime();
     this.renderer.render(this.scene, this.camera);
   };
 
