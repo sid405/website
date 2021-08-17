@@ -19,10 +19,10 @@ const PostPage: NextPage<PageProps> = ({ meta, content }) => {
         <Link href="/#posts">
           <a
             title="Back to home page"
-            className="flex items-center space-x-4 underline cursor-pointer"
+            className="flex items-center space-x-2 underline cursor-pointer"
           >
-            <Icon name="arrow-left" size={14} />
-            <span className="ml-1">dietcode.io</span>
+            <Icon name="arrow-left" size={12} />
+            <span>dietcode.io</span>
           </a>
         </Link>
         <ThemeSwitch />

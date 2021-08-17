@@ -1,6 +1,6 @@
 type Props = {
   name: "sun" | "moon" | "arrow-left" | "arrow-down" | "github" | "mail";
-  size?: 16 | 14;
+  size?: 16 | 12;
 };
 
 export function Icon({ name, size = 16 }: Props) {

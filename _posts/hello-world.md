@@ -1,14 +1,18 @@
 ---
 title: "Hello World!"
-excerpt: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod"
-coverImage: "/assets/blog/hello-world/cover.jpg"
-date: "August 14, 2021"
+excerpt: "What's this all about anyway?"
+date: "August 15, 2021"
+tags: [misc]
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Praesent elementum facilisis leo vel fringilla est ullamcorper eget. At imperdiet dui accumsan sit amet nulla facilities morbi tempus. Praesent elementum facilisis leo vel fringilla. Congue mauris rhoncus aenean vel. Egestas sed tempus urna et pharetra pharetra massa massa ultricies.
+Welcome!
 
-Venenatis cras sed felis eget velit. Consectetur libero id faucibus nisl tincidunt. Gravida in fermentum et sollicitudin ac orci phasellus egestas tellus. Volutpat consequat mauris nunc congue nisi vitae. Id aliquet risus feugiat in ante metus dictum at tempor. Sed blandit libero volutpat sed cras. Sed odio morbi quis commodo odio aenean sed adipiscing. Velit euismod in pellentesque massa placerat. Mi bibendum neque egestas congue quisque egestas diam in arcu. Nisi lacus sed viverra tellus in. Nibh cras pulvinar mattis nunc sed. Luctus accumsan tortor posuere ac ut consequat semper viverra. Fringilla ut morbi tincidunt augue interdum velit euismod.
+This is meant to be a short-form blog; I can't hold my own attention long enough to write anything that takes more than 15 minutes to read. I'll talk about things that intrigue me; expect a cocktail of web & graphics programming content, a pinch of opinions, topped with a garnish of rants! I might not be an expert in any of it, mostly because I'm attracted to things that I know nothing about 😬
 
-## Lorem Ipsum
+I hope you like it, and that I stick with it 😄
 
-Tristique senectus et netus et malesuada fames ac turpis. Ridiculous mus mauris vitae ultricies leo integer malesuada nunc vel. In mollis nunc sed id semper. Egestas tellus rutrum tellus pellentesque. Phasellus vestibulum lorem sed risus ultricies tristique nulla. Quis blandit turpis cursus in hac habitasse platea dictumst quisque. Eros donec ac odio tempor orci dapibus ultrices. Aliquam sem et tortor consequat id porta nibh. Adipiscing elit duis tristique sollicitudin nibh sit amet commodo nulla. Diam vulputate ut pharetra sit amet. Ut tellus elementum sagittis vitae et leo. Arcu non odio euismod lacinia at quis risus sed vulputate.
+P.S. I've got an incredible story about how this blog came to be, and I think that perfectly illustrates my brain:
+
+I woke up yesterday reading a tweet about [Phil Pluckthun](http://github.com/kitten) joining [GraphCDN](https://graphcdn.io). One of the founders of GraphCDN ([Tim](https://github.com/timsuchanek)) was a colleague of mine at [Prisma](https://prisma.io). In fact, he hired me! Anyway, the first thought that came to my brain was damn, GraphCDN's making MOVES! I felt this sudden burst of motivation to make progress on [Crisp](https://github.com/crimsontools). I've been reading a bunch of academic papers to build it, so I immediately jumped out of bed to read some more.
+
+I thought it'd be cool to write about all this, since I decided I wanted to do more of that this year (in JANUARY! At least I'm finally getting to it). But in order to write, I needed a place to do it, so I thought I'd quickly finish up my website that I'd designed in Figma last week. Then I realized how I got distracted so easily, so I did some research about psychiatrists near me (I've been wanting to get tested for ADHD for a while now), found that they only open on Monday, realized I needed to get back to my website, decided I didn't like the design anymore, so redesigned it in Figma as a website + blog combo, then finally got around to building it, and here we are!
