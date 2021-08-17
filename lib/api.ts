@@ -9,6 +9,8 @@ export type Post = {
     title: string;
     excerpt: string;
     date: string;
+    tags: string[];
+    draft?: boolean;
   };
 };
 
@@ -35,6 +37,7 @@ export function getAllPosts(): Post[] {
   const slugs = getPostSlugs();
   const posts = slugs
     .map((slug) => getPostBySlug(slug))
+    .filter((post) => !post.meta.draft)
     .sort((post1, post2) => (post1.meta.date > post2.meta.date ? -1 : 1)); // sort by desc date
   return posts;
 }

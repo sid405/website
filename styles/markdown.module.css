@@ -3,10 +3,15 @@
 }
 
 .markdown p,
+.markdown a,
 .markdown ul,
 .markdown ol,
 .markdown blockquote {
   @apply text-base my-8;
+}
+
+.markdown a {
+  @apply underline text-red-500;
 }
 
 .markdown h2 {
