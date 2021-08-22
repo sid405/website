@@ -1,9 +1,9 @@
-import { useTheme } from "@madebysid/usetheme";
+import { useTheme } from "next-themes";
 import React from "react";
 import { Icon } from "./Icon";
 
 export function ThemeSwitch() {
-  const { theme, setTheme } = useTheme();
+  const { resolvedTheme: theme, setTheme } = useTheme();
 
   return (
     <button

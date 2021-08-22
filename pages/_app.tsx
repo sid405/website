@@ -1,4 +1,4 @@
-import { ThemeProvider } from "@madebysid/usetheme";
+import { ThemeProvider } from "next-themes";
 import type { AppProps } from "next/app";
 import Head from "next/head";
 import React from "react";
@@ -10,7 +10,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       <Head>
         <title>Diet Code</title>
       </Head>
-      <ThemeProvider>
+      <ThemeProvider attribute="class">
         <Component {...pageProps} />
       </ThemeProvider>
     </>

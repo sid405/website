@@ -1,4 +1,3 @@
-import { Theme } from "@madebysid/usetheme";
 import {
   Clock,
   Color,
@@ -93,7 +92,7 @@ export class Canvas {
     this.camera.updateProjectionMatrix();
   }
 
-  public setTheme(theme: Theme) {
+  public setTheme(theme: string) {
     if (theme === "light") {
       this.material.uniforms.color.value = new Color(LIGHT_COLOR);
     } else {

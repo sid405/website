@@ -1,11 +1,11 @@
-import { useTheme } from "@madebysid/usetheme";
 import debounce from "lodash/debounce";
+import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 import { Canvas } from "../lib/canvas/canvas";
 
 export function TopoBackground() {
   const [canvas, setCanvas] = useState<Canvas>();
-  const { theme } = useTheme();
+  const { resolvedTheme: theme } = useTheme();
 
   useEffect(() => {
     if (!Canvas.isWebGLAvailable()) {
