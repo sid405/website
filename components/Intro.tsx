@@ -69,6 +69,7 @@ export function Intro({ latestPostTitle, latestPostSlug }: Props) {
           <Link
             href={`/posts/${latestPostSlug}`}
             title="Read my latest blog post"
+            newTab={false}
           >
             {latestPostTitle}
           </Link>
@@ -78,6 +79,7 @@ export function Intro({ latestPostTitle, latestPostSlug }: Props) {
           <Link
             href="/posts/webgl-topographic"
             title="Read how this page's background is generated"
+            newTab={false}
           >
             Here’s how
           </Link>

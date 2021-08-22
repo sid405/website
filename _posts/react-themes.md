@@ -24,7 +24,7 @@ This is a seriously jarring thing. Let's say you're on a dark OS, you load up a 
 
 Here's why this happens:
 
-![Page execution timeline](/react-hooks/timeline.svg)
+![Page execution timeline](/react-themes/timeline.svg)
 
 Read the timeline from left to right. When you set your "initial" theme from within a React `useState`, there are multiple things that need to happen before your browser knows what the "correct" theme is.
 

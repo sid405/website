@@ -7,12 +7,12 @@ import { PostList } from "../components/PostList";
 import { getAllPosts, Post } from "../lib/api";
 
 type PageProps = {
-  allPosts: Post[];
+  posts: Post[];
 };
 
 const ThemeSwitch = dynamic(() => import("../components/ThemeSwitch"));
 
-const Home: NextPage<PageProps> = ({ allPosts }) => {
+const Home: NextPage<PageProps> = ({ posts }) => {
   return (
     <>
       <header className="flex items-center justify-between my-16">
@@ -33,10 +33,10 @@ const Home: NextPage<PageProps> = ({ allPosts }) => {
 
       <main className="flex flex-col">
         <Intro
-          latestPostTitle={allPosts[0].meta.title}
-          latestPostSlug={allPosts[0].slug}
+          latestPostTitle={posts[0].meta.title}
+          latestPostSlug={posts[0].slug}
         />
-        <PostList posts={allPosts} />
+        <PostList posts={posts} />
       </main>
     </>
   );
@@ -46,6 +46,6 @@ export default Home;
 
 export const getStaticProps: GetStaticProps<PageProps> = async () => {
   return {
-    props: { allPosts: getAllPosts() },
+    props: { posts: getAllPosts().slice(0, 4) },
   };
 };
