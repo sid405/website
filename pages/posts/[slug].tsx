@@ -5,7 +5,6 @@ import React from "react";
 import { Icon } from "../../components/Icon";
 import { getAllPosts, getPostBySlug, Post } from "../../lib/api";
 import markdownToHtml from "../../lib/md";
-import markdownStyles from "../../styles/markdown.module.css";
 
 type PageProps = {
   meta: Post["meta"];
@@ -42,7 +41,7 @@ const PostPage: NextPage<PageProps> = ({ meta, content }) => {
           </ul>
           <h6 className="mt-2 mb-16 text-xl text-red-500">{meta.date}</h6>
           <article
-            className={markdownStyles["markdown"]}
+            className="markdown"
             dangerouslySetInnerHTML={{ __html: content }}
           ></article>
         </section>

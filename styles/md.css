@@ -1,0 +1,46 @@
+.markdown {
+  @apply text-base leading-relaxed;
+}
+
+.markdown code {
+  @apply text-base border border-gray-300 dark:border-gray-600 rounded-md px-1;
+}
+
+.markdown pre {
+  @apply text-base border border-gray-300 dark:border-gray-600 rounded-md p-4 overflow-auto;
+}
+.markdown pre code {
+  @apply border-none;
+}
+
+.markdown h3 {
+  @apply text-xl text-red-500;
+}
+
+.markdown p,
+.markdown a,
+.markdown ul,
+.markdown ol,
+.markdown blockquote {
+  @apply text-base my-8 list-inside;
+}
+
+.markdown ul {
+  list-style-type: "- ";
+}
+
+.markdown ol {
+  list-style-type: decimal;
+}
+
+.markdown a {
+  @apply underline text-red-500;
+}
+
+.markdown h2 {
+  @apply text-2xl mt-12 mb-4 leading-snug;
+}
+
+.markdown hr {
+  @apply border-gray-300 dark:border-gray-600;
+}

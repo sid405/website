@@ -1,3 +1,4 @@
+import rehypePrism from "@mapbox/rehype-prism";
 import rehypeExternalLinks from "rehype-external-links";
 import rehypeRaw from "rehype-raw";
 import rehypeStringify from "rehype-stringify";
@@ -10,6 +11,7 @@ export default async function markdownToHtml(markdown: string) {
     .use(remarkParse)
     .use(remarkRehype, { allowDangerousHtml: true })
     .use(rehypeRaw)
+    .use(rehypePrism)
     .use(rehypeExternalLinks, { target: "_blank" })
     .use(rehypeStringify)
     .process(markdown)

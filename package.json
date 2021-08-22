@@ -11,7 +11,8 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "@fontsource/jetbrains-mono": "4.5.0",
+    "@fontsource/ibm-plex-mono": "4.5.0",
+    "@mapbox/rehype-prism": "0.7.0",
     "@types/lodash": "4.14.172",
     "@types/react": "17.0.18",
     "@types/three": "0.131.0",
