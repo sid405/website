@@ -3,6 +3,7 @@ title: "Hello World!"
 excerpt: "What's this all about anyway?"
 date: "August 15, 2021"
 tags: [misc]
+draft: false
 ---
 
 Welcome!
