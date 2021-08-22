@@ -23,6 +23,7 @@
     "next": "11.1.0",
     "next-themes": "0.0.15",
     "postcss": "8.3.6",
+    "preact": "10.5.14",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "rehype-external-links": "1.0.0",
