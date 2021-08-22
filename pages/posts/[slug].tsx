@@ -1,8 +1,8 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
+import dynamic from "next/dynamic";
 import Link from "next/link";
 import React from "react";
 import { Icon } from "../../components/Icon";
-import { ThemeSwitch } from "../../components/ThemeSwitch";
 import { getAllPosts, getPostBySlug, Post } from "../../lib/api";
 import markdownToHtml from "../../lib/md";
 import markdownStyles from "../../styles/markdown.module.css";
@@ -11,6 +11,8 @@ type PageProps = {
   meta: Post["meta"];
   content: string;
 };
+
+const ThemeSwitch = dynamic(() => import("../../components/ThemeSwitch"));
 
 const PostPage: NextPage<PageProps> = ({ meta, content }) => {
   return (

@@ -2,7 +2,7 @@ import { useTheme } from "next-themes";
 import React from "react";
 import { Icon } from "./Icon";
 
-export function ThemeSwitch() {
+export default function ThemeSwitch() {
   const { resolvedTheme: theme, setTheme } = useTheme();
 
   return (

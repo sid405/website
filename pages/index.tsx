@@ -1,14 +1,16 @@
 import type { GetStaticProps, NextPage } from "next";
+import dynamic from "next/dynamic";
 import Link from "next/link";
 import { Icon } from "../components/Icon";
 import { Intro } from "../components/Intro";
 import { PostList } from "../components/PostList";
-import { ThemeSwitch } from "../components/ThemeSwitch";
 import { getAllPosts, Post } from "../lib/api";
 
 type PageProps = {
   allPosts: Post[];
 };
+
+const ThemeSwitch = dynamic(() => import("../components/ThemeSwitch"));
 
 const Home: NextPage<PageProps> = ({ allPosts }) => {
   return (
