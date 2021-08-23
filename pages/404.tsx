@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { Header } from "../components/Header";
 import { Icon } from "../components/Icon";
-import kitty from "../public/kitty.svg";
 
 export default function NotFound() {
   return (
@@ -11,7 +10,7 @@ export default function NotFound() {
         <h1 className="font-ibm text-9xl">404</h1>
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src={kitty}
+          src="/kitty.svg"
           alt="Decorative kitty"
           className="absolute"
           style={{ zIndex: -1, top: "-0.75rem" }}
