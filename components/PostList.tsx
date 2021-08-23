@@ -1,5 +1,6 @@
 import React from "react";
 import { Post } from "../lib/api";
+import { Date, Title } from "./Post";
 
 type Props = {
   posts: Post[];
@@ -29,9 +30,9 @@ function Item({ post }: ItemProps) {
         href={`/posts/${post.slug}`}
         className="my-2 text-4xl hover:underline cursor-pointer"
       >
-        {post.meta.title}
+        <Title>{post.meta.title}</Title>
       </a>
-      <h6 className="my-2 text-xl text-red-500">{post.meta.date}</h6>
+      <Date>{post.meta.date}</Date>
       <p className="my-8">{post.meta.excerpt}</p>
     </article>
   );

@@ -3,6 +3,7 @@ import dynamic from "next/dynamic";
 import Link from "next/link";
 import React from "react";
 import { Icon } from "../../components/Icon";
+import { Date, Tags, Title } from "../../components/Post";
 import { getAllPosts, getPostBySlug, Post } from "../../lib/api";
 import markdownToHtml from "../../lib/md";
 
@@ -31,15 +32,9 @@ const PostPage: NextPage<PageProps> = ({ meta, content }) => {
 
       <main className="flex flex-col">
         <section>
-          <h3 className="my-2 text-4xl">{meta.title}</h3>
-          <ul className="flex space-x-4">
-            {meta.tags.map((t) => (
-              <li key={t} className="text-gray-400 dark:gray-300">
-                #{t}
-              </li>
-            ))}
-          </ul>
-          <h6 className="mt-2 mb-16 text-xl text-red-500">{meta.date}</h6>
+          <Title>{meta.title}</Title>
+          <Tags value={meta.tags} />
+          <Date>{meta.date}</Date>
           <article
             className="markdown"
             dangerouslySetInnerHTML={{ __html: content }}
