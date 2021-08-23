@@ -24,9 +24,9 @@ country=US
 update_config=1
 
 network={
-	ssid="<My SSID>"
-	psk="<My Password>"
-	key_mgmt=WPA-PSK
+  ssid="<My SSID>"
+  psk="<My Password>"
+  key_mgmt=WPA-PSK
 }
 ```
 
