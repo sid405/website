@@ -79,9 +79,9 @@ uniform float time;
 
 void main() {
 	// `levels` is the number of distinct "bands" you want
-	float levels = 7.0;
+	float levels = 10.0;
 
-	float noise = snoise(vec3(gl_FragCoord.xy * 0.005 , time * 0.02)); // get noise value
+	float noise = snoise(vec3(gl_FragCoord.xy * 0.005 , time * 0.012)); // get noise value
 	noise = (noise + 1.0) / 2.0; // normalize it
 
 	// we want to posterize + detect edges

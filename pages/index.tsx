@@ -1,7 +1,6 @@
 import type { GetStaticProps, NextPage } from "next";
 import dynamic from "next/dynamic";
-import Link from "next/link";
-import { Icon } from "../components/Icon";
+import { Header } from "../components/Header";
 import { Intro } from "../components/Intro";
 import { PostList } from "../components/PostList";
 import { getAllPosts, Post } from "../lib/api";
@@ -15,21 +14,7 @@ const ThemeSwitch = dynamic(() => import("../components/ThemeSwitch"));
 const Home: NextPage<PageProps> = ({ posts }) => {
   return (
     <>
-      <header className="flex items-center justify-between my-16">
-        <div className="flex items-center">
-          <Link href="https://github.com/madebysid">
-            <a title="Visit my GitHub profile">
-              <Icon name="github" />
-            </a>
-          </Link>
-          <Link href="mailto:me@madebysid.com">
-            <a title="Email me" className="mx-8">
-              <Icon name="mail" />
-            </a>
-          </Link>
-        </div>
-        <ThemeSwitch />
-      </header>
+      <Header />
 
       <main className="flex flex-col">
         <Intro
