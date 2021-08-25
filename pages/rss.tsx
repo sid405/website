@@ -1,12 +1,14 @@
 import * as fs from "fs";
-import { GetStaticProps } from "next";
+import { GetStaticProps, NextPage } from "next";
 import { getAllPosts } from "../lib/api";
 
 type PageProps = {};
 
-export default function Rss() {
+const Rss: NextPage<PageProps> = () => {
   return null;
-}
+};
+
+export default Rss;
 
 export const getStaticProps: GetStaticProps<PageProps> = async () => {
   const posts = getAllPosts();

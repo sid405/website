@@ -1,8 +1,9 @@
+import { NextPage } from "next";
 import Link from "next/link";
 import { Header } from "../components/Chrome";
 import { Icon } from "../components/Icon";
 
-export default function NotFound() {
+const NotFound: NextPage<{}> = () => {
   return (
     <>
       <Header />
@@ -33,4 +34,6 @@ export default function NotFound() {
       </main>
     </>
   );
-}
+};
+
+export default NotFound;

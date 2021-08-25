@@ -2,6 +2,7 @@ import type { GetStaticProps, NextPage } from "next";
 import dynamic from "next/dynamic";
 import { Footer, Header } from "../components/Chrome";
 import { Intro } from "../components/Intro";
+import { Link } from "../components/Link";
 import { PostList } from "../components/PostList";
 import { getAllPosts, Post } from "../lib/api";
 
@@ -22,6 +23,12 @@ const Home: NextPage<PageProps> = ({ posts }) => {
           latestPostSlug={posts[0].slug}
         />
         <PostList posts={posts} />
+
+        <div className="mt-20">
+          <Link href="/posts" title="All posts" newTab={false}>
+            All posts
+          </Link>
+        </div>
       </main>
 
       <Footer />
