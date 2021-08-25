@@ -1,6 +1,6 @@
 import type { GetStaticProps, NextPage } from "next";
 import dynamic from "next/dynamic";
-import { Header } from "../components/Header";
+import { Footer, Header } from "../components/Chrome";
 import { Intro } from "../components/Intro";
 import { PostList } from "../components/PostList";
 import { getAllPosts, Post } from "../lib/api";
@@ -23,6 +23,8 @@ const Home: NextPage<PageProps> = ({ posts }) => {
         />
         <PostList posts={posts} />
       </main>
+
+      <Footer />
     </>
   );
 };

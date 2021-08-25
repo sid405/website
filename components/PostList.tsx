@@ -8,7 +8,7 @@ type Props = {
 
 export function PostList({ posts }: Props) {
   return (
-    <section className="mt-32">
+    <section className="mt-32 space-y-20">
       <h2 id="posts" className="text-2xl uppercase opacity-50">
         Posts
       </h2>
@@ -25,7 +25,7 @@ type ItemProps = {
 
 function Item({ post }: ItemProps) {
   return (
-    <article className="my-16">
+    <article>
       <a
         href={`/posts/${post.slug}`}
         className="my-2 text-4xl hover:underline cursor-pointer"
@@ -33,7 +33,7 @@ function Item({ post }: ItemProps) {
         <Title>{post.meta.title}</Title>
       </a>
       <Date>{post.meta.date}</Date>
-      <p className="my-8">{post.meta.excerpt}</p>
+      <p className="my-4">{post.meta.excerpt}</p>
     </article>
   );
 }

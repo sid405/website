@@ -3,6 +3,7 @@ import dynamic from "next/dynamic";
 import Head from "next/head";
 import Link from "next/link";
 import React from "react";
+import { Footer } from "../../components/Chrome";
 import { Icon } from "../../components/Icon";
 import { Date, Tags, Title } from "../../components/Post";
 import { getAllPosts, getPostBySlug, Post } from "../../lib/api";
@@ -71,11 +72,13 @@ const PostPage: NextPage<PageProps> = ({ meta, slug, content }) => {
           <Tags value={meta.tags} />
           <Date>{meta.date}</Date>
           <article
-            className="markdown"
+            className="markdown mt-16"
             dangerouslySetInnerHTML={{ __html: content }}
           ></article>
         </section>
       </main>
+
+      <Footer />
     </>
   );
 };

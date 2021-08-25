@@ -1,5 +1,12 @@
 type Props = {
-  name: "sun" | "moon" | "arrow-left" | "arrow-down" | "github" | "mail";
+  name:
+    | "sun"
+    | "moon"
+    | "arrow-left"
+    | "arrow-down"
+    | "github"
+    | "mail"
+    | "rss";
   size?: 16 | 12;
 };
 
@@ -169,6 +176,22 @@ export function Icon({ name, size = 16 }: Props) {
             d="M0.131529 2.33182C0.361865 1.97991 0.815338 1.89433 1.14439 2.14066L8 7.27284L14.8556 2.14066C15.1847 1.89433 15.6381 1.97991 15.8685 2.33182C16.0988 2.68372 16.0188 3.16868 15.6897 3.41501L8.41706 8.8594C8.16665 9.04687 7.83335 9.04687 7.58294 8.8594L0.310269 3.41501C-0.0187823 3.16868 -0.0988069 2.68372 0.131529 2.33182Z"
             fill="currentColor"
           />
+        </svg>
+      );
+
+    case "rss":
+      return (
+        <svg
+          {...common}
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <path d="M4 11a9 9 0 0 1 9 9"></path>
+          <path d="M4 4a16 16 0 0 1 16 16"></path>
+          <circle cx="5" cy="19" r="1"></circle>
         </svg>
       );
     default:

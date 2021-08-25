@@ -1,10 +1,10 @@
 export function Title({ children }: { children: string }) {
-  return <h3 className="my-2 font-ibm text-4xl">{children}</h3>;
+  return <h3 className="my-2 font-ibm font-bold text-4xl">{children}</h3>;
 }
 
 export function Date({ children }: { children: string }) {
   return (
-    <h6 className="mt-2 mb-16 font-ibm text-lg text-red-500">{children}</h6>
+    <h6 className="mt-2 mb-2 font-ibm text-lg text-red-500">{children}</h6>
   );
 }
 
