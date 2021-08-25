@@ -1,5 +1,6 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import dynamic from "next/dynamic";
+import Head from "next/head";
 import Link from "next/link";
 import React from "react";
 import { Icon } from "../../components/Icon";
@@ -9,14 +10,48 @@ import markdownToHtml from "../../lib/md";
 
 type PageProps = {
   meta: Post["meta"];
+  slug: Post["slug"];
   content: string;
 };
 
 const ThemeSwitch = dynamic(() => import("../../components/ThemeSwitch"));
 
-const PostPage: NextPage<PageProps> = ({ meta, content }) => {
+const PostPage: NextPage<PageProps> = ({ meta, slug, content }) => {
   return (
     <>
+      <Head>
+        <title>{meta.title} - Dietcode.io</title>
+
+        {/* Basic */}
+        <meta charSet="utf-8" />
+        <meta name="title" content={meta.title} />
+        <meta name="description" content={meta.excerpt} />
+
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="article" />
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:url" content={`https://dietcode.io/posts/${slug}`} />
+        <meta property="og:title" content={meta.title} />
+        <meta property="og:description" content={meta.excerpt} />
+        <meta
+          property="og:image"
+          content="https://dietcode.io/opengraph.jpg?v=1"
+        />
+
+        {/* Twitter */}
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta
+          property="twitter:url"
+          content={`https://dietcode.io/posts/${slug}`}
+        />
+        <meta property="twitter:title" content={meta.title} />
+        <meta property="twitter:description" content={meta.excerpt} />
+        <meta
+          property="twitter:image"
+          content="https://dietcode.io/twitter.jpg?v=1"
+        />
+      </Head>
+
       <header className="flex items-center justify-between my-16">
         <Link href="/#posts">
           <a
@@ -55,6 +90,7 @@ export const getStaticProps: GetStaticProps<PageProps> = async ({ params }) => {
   return {
     props: {
       meta: post.meta,
+      slug,
       content,
     },
   };
