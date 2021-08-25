@@ -14,7 +14,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           name="description"
           content="Sid's blog on digestible tech content"
         />
-        <title>Dietcode.io - Sid's blog</title>
+        <title>Dietcode.io - Sid&apos;s blog</title>
 
         {/* Basic */}
         <meta charSet="utf-8" />

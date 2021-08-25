@@ -7,7 +7,8 @@
     "build": "next build",
     "lint": "next lint",
     "format": "prettier --ignore-path=.gitignore -w .",
-    "format:check": "prettier --ignore-path=.gitignore -c ."
+    "format:check": "prettier --ignore-path=.gitignore -c .",
+    "preview": "yarn next build && yarn next export"
   },
   "dependencies": {},
   "devDependencies": {
