@@ -10,11 +10,12 @@ export default function Rss() {
 
 export const getStaticProps: GetStaticProps<PageProps> = async () => {
   const posts = getAllPosts();
-  const rss = `<rss version="2.0">
+  const rss = `<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
       <title>Dietcode.io</title>
       <link>https://dietcode.io</link>
-      <description>Digestible tech content</description>
+      <atom:link href="http://dietcode.io/rss.xml" rel="self" type="application/rss+xml" />
+      <description>Sid's blog on digestible tech content</description>
       <language>en</language>
       <lastBuildDate>${new Date(
         posts[0].meta.date
@@ -27,8 +28,7 @@ export const getStaticProps: GetStaticProps<PageProps> = async () => {
               <link>https://dietcode.io/posts/${p.slug}</link>
               <title>${p.meta.title}</title>
               <description>${p.meta.excerpt}</description>
-              <author>Siddhant</author>
-              <pubDate>${p.meta.date}</pubDate>
+              <pubDate>${new Date(p.meta.date)}</pubDate>
             </item>`
         )
         .join("\n")}
