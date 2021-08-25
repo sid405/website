@@ -14,7 +14,7 @@ export const getStaticProps: GetStaticProps<PageProps> = async () => {
     <channel>
       <title>Dietcode.io</title>
       <link>https://dietcode.io</link>
-      <atom:link href="http://dietcode.io/rss.xml" rel="self" type="application/rss+xml" />
+      <atom:link href="https://dietcode.io/rss.xml" rel="self" type="application/rss+xml" />
       <description>Sid's blog on digestible tech content</description>
       <language>en</language>
       <lastBuildDate>${new Date(
@@ -28,7 +28,7 @@ export const getStaticProps: GetStaticProps<PageProps> = async () => {
               <link>https://dietcode.io/posts/${p.slug}</link>
               <title>${p.meta.title}</title>
               <description>${p.meta.excerpt}</description>
-              <pubDate>${new Date(p.meta.date)}</pubDate>
+              <pubDate>${new Date(p.meta.date).toUTCString()}</pubDate>
             </item>`
         )
         .join("\n")}
