@@ -13,7 +13,7 @@ export const getStaticProps: GetStaticProps<PageProps> = async () => {
   const rss = `<?xml version="1.0" encoding="UTF-8" ?>
   <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
-      <title>Dietcode.io</title>
+      <title>Dietcode.io - Sid's blog</title>
       <link>https://dietcode.io</link>
       <atom:link href="https://dietcode.io/rss.xml" rel="self" type="application/rss+xml" />
       <description>Sid's blog on digestible tech content</description>
@@ -22,9 +22,9 @@ export const getStaticProps: GetStaticProps<PageProps> = async () => {
         posts[0].meta.date
       ).toUTCString()}</lastBuildDate>
       <image>
-        <url>http://url/to/img</url>
+        <url>https://dietcode.io/favicon-32x32.png</url>
         <title>Dietcode.io favicon</title>
-        <link>http://example</link>
+        <link>https://dietcode.io</link>
       </image>
       ${posts
         .map(
