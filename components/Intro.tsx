@@ -1,5 +1,4 @@
 import { default as NextLink } from "next/link";
-import React from "react";
 import { Icon } from "./Icon";
 import { Link } from "./Link";
 import { TopoBackground } from "./TopoBackground";
@@ -22,8 +21,11 @@ export function Intro({ latestPostTitle, latestPostSlug }: Props) {
         <p className="text-5xl">👋</p>
         <p>I&apos;m Sid, I&apos;m a Typescript Engineer in Berlin.</p>
         <p>
-          I currently work at Prisma, and we’re trying to bring databases to
-          2021. I work on a{" "}
+          I currently work at{" "}
+          <Link href="https://prisma.io" title="Prisma website">
+            Prisma
+          </Link>
+          , and we’re trying to bring databases to 2021. I work on a{" "}
           <Link
             href="https://cloud.prisma.io"
             title="Visit the Prisma Data Platform"
@@ -60,7 +62,7 @@ export function Intro({ latestPostTitle, latestPostSlug }: Props) {
             href="https://github.com/crimsontools/crisp"
             title="Visit GitHub repository for Crisp"
           >
-            Crimson
+            Crisp
           </Link>
           , which is a GPU-accelerated path renderer.
         </p>
