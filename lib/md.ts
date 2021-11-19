@@ -6,7 +6,7 @@ import remarkParse from "remark-parse";
 import remarkRehype from "remark-rehype";
 import { unified } from "unified";
 
-export default async function markdownToHtml(markdown: string) {
+export default function markdownToHtml(markdown: string) {
   return unified()
     .use(remarkParse)
     .use(remarkRehype, { allowDangerousHtml: true })

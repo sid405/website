@@ -2,12 +2,13 @@ import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import dynamic from "next/dynamic";
 import Head from "next/head";
 import Link from "next/link";
-import React from "react";
 import { Footer } from "../../components/Chrome";
 import { Icon } from "../../components/Icon";
 import { Date, Tags, Title } from "../../components/Post";
 import { getAllPosts, getPostBySlug, Post } from "../../lib/api";
 import markdownToHtml from "../../lib/md";
+
+const ThemeSwitch = dynamic(() => import("../../components/ThemeSwitch"));
 
 type PageProps = {
   meta: Post["meta"];
@@ -15,7 +16,32 @@ type PageProps = {
   content: string;
 };
 
-const ThemeSwitch = dynamic(() => import("../../components/ThemeSwitch"));
+export const getStaticProps: GetStaticProps<PageProps> = async ({ params }) => {
+  const slug = params?.slug as string;
+  const post = getPostBySlug(slug);
+  const content = await markdownToHtml(post.content);
+
+  return {
+    props: {
+      meta: post.meta,
+      slug,
+      content,
+    },
+  };
+};
+
+export const getStaticPaths: GetStaticPaths = () => {
+  return {
+    paths: getAllPosts().map((post) => {
+      return {
+        params: {
+          slug: post.slug,
+        },
+      };
+    }),
+    fallback: false,
+  };
+};
 
 const PostPage: NextPage<PageProps> = ({ meta, slug, content }) => {
   return (
@@ -84,30 +110,3 @@ const PostPage: NextPage<PageProps> = ({ meta, slug, content }) => {
 };
 
 export default PostPage;
-
-export const getStaticProps: GetStaticProps<PageProps> = async ({ params }) => {
-  const slug = params?.slug as string;
-  const post = getPostBySlug(slug);
-  const content = await markdownToHtml(post.content);
-
-  return {
-    props: {
-      meta: post.meta,
-      slug,
-      content,
-    },
-  };
-};
-
-export const getStaticPaths: GetStaticPaths = () => {
-  return {
-    paths: getAllPosts().map((post) => {
-      return {
-        params: {
-          slug: post.slug,
-        },
-      };
-    }),
-    fallback: false,
-  };
-};
